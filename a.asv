@@ -1,0 +1,75 @@
+clc;clear;
+[data, fs] = audioread('Exp 1 Anterior.wav');
+difference_array = [];
+
+data = data(226800:end, :);
+[y, x] = findpeaks(data(:,1), 'MinPeakHeight', 0.03, 'MinPeakDistance',210);
+[y2, x2] = findpeaks(data(:, 2), 'MinPeakHeight', 0.03, 'MinPeakDistance',210);
+
+diff = zeros(1, length(y));
+for i = 1:length(y)
+    diff(i) = abs(x(i) - x2(i));
+end
+difference_array = [difference_array diff];
+%%
+
+
+[data, fs] = audioread('Exp 1 Anterior.wav');
+
+
+data = data(164278:226800, :);
+[y, x] = findpeaks(data(:,1), 'MinPeakHeight', 0.031, 'MinPeakDistance',210);
+[y2, x2] = findpeaks(data(:, 2), 'MinPeakHeight', 0.031, 'MinPeakDistance',210);
+
+diff = zeros(1, length(y));
+for i = 1:length(y)
+    diff(i) = abs(x(i) - x2(i));
+end
+difference_array = [difference_array diff];
+%%
+[data, fs] = audioread('Exp 1 Anterior.wav');
+
+
+data = data(125576:164278, :);
+[y, x] = findpeaks(data(:,1), 'MinPeakHeight', 0.031, 'MinPeakDistance',210);
+[y2, x2] = findpeaks(data(:, 2), 'MinPeakHeight', 0.031, 'MinPeakDistance',210);
+
+diff = zeros(1, length(y));
+for i = 1:length(y)
+    diff(i) = abs(x(i) - x2(i));
+end
+difference_array = [difference_array diff];
+%%
+[data, fs] = audioread('Exp 1 Anterior.wav');
+
+
+data = data(1:72423, :);
+[y, x] = findpeaks(data(:,1), 'MinPeakHeight', 0.031, 'MinPeakDistance',210);
+[y2, x2] = findpeaks(data(:, 2), 'MinPeakHeight', 0.031, 'MinPeakDistance',210);
+
+diff = zeros(1, length(y));
+for i = 1:length(y)
+    diff(i) = abs(x(i) - x2(i));
+end
+difference_array = [difference_array diff];
+figure;
+for i = 1:2
+    if i == 1
+        subplot(2, 1, i)
+        plot(data(:, 1))
+        hold on
+        plot(x, y, 'o')
+        title('Channel 1 Peaks');
+    else
+        subplot(2, 1, i)
+        plot(data(:, 2))
+        hold on
+        plot(x2, y2, 'o')
+        title('Channel 2 Peaks');
+    end
+end
+difference_array = sort(difference_array);
+Most_diff_pts = 13; % pts / fs = time
+most_diff_time = 13 / fs;
+distance = 1.5;%cm
+Velo = 
