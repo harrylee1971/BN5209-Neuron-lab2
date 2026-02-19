@@ -4,6 +4,7 @@ clc;clear
 fft_data = fft(data);
 
 x = ((1:length(fft_data))-1) * fs / length(fft_data);
-y = fft_data .^ 2;
+y = abs(fft_data) .^ 2;
 
-plot(x, y(1))
+plot(x, y(:, 1))
+xlim([0 5000])
