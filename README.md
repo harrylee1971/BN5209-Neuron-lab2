@@ -1,5 +1,5 @@
 # BN5209 蚯蚓神經傳導電生理紀錄 
-# (ENG Earthworm Nerve Conduction)
+# ENG Earthworm Nerve Conduction
 
 ## 🎯 實驗目標
 本專案的主要目的是透過紀錄蚯蚓的動作電位 (Action Potential, AP)，來進行基礎的電生理訊號分析。
